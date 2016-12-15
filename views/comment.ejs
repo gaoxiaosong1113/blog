@@ -1,0 +1,60 @@
+<div class="comments">
+  <div class="comments-data"> 评论 (<%= post.comments.length %>)</div>
+  <div class="comments-container">
+    <ol class="commentlist clearfix">
+      <% post.comments.forEach(function (comment, index) { %>
+      <li class="comment even thread-even depth-1">
+        <div class="comment-body">
+          <div class="comment-avatar">
+            <img alt="" src="<%= comment.head %>" class="avatar avatar-50 photo" height="50" width="50" style="display: inline;">
+          </div>
+          <span class="comment-floor">
+            <% if (index == 0){ %>
+            沙发
+            <% } else { %>
+            <%= index + 1 %> 楼
+            <% } %>
+          </span>
+          <div class="comment-data"><a href="<%= comment.website %>"><span class="comment-span"><%= comment.name %></span></a> <span class="comment-span comment-date"><%= comment.time %></span></div>
+          <div class="comment-text"><p><%- comment.content %></p></div>
+          <!--<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://www.waitsun.com/autodesk-autocad-2017.html?replytocom=41328#respond" onclick="return addComment.moveForm( &quot;comment-41328&quot;, &quot;41328&quot;, &quot;respond&quot;, &quot;17011&quot; )" aria-label="回复给若即若离">回复</a></div>-->
+        </div>
+        <!--<ul class="children">-->
+        <!--<li class="comment byuser comment-author-cookieking bypostauthor odd alt depth-2" id="li-comment-41329">-->
+        <!--<div class="comment-body comment-children-body">-->
+        <!--<div class="comment-avatar">-->
+        <!--<img alt="" src="" class="avatar avatar-30 photo" style="display: inline;">-->
+        <!--</div>-->
+        <!--<span class="comment-floor"><a rel="nofollow" class="comment-reply-link" href="">回复</a></span>-->
+        <!--<div class="comment-data"><span class="comment-span comment-author"> 爱情守望者 </span> <span class="comment-span comment-date">10 小时前</span></div>-->
+        <!--<div class="comment-text"><span class="comment-to"><a href="#comment-41328" title="软件很好，可没有找到中文啊，还是只有英文和法文可选">@若即若离</a>：</span> 去官网直接下载中文，然后用注册机激活-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+      </li>
+      <% }) %>
+
+    </ol>
+    <div class="comments-data comments-data-footer clearfix">
+      <div class="comment-topnav"></div>
+      <h2 class="comments-title">发表评论</h2></div>
+  </div>
+  <div id="respond" class="respond">
+    <form method="post" action="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+      <% if (user) { %>
+      <input type="hidden" name="name" value="<%= user.name %>"/>
+      <input type="hidden" name="email" value="<%= user.email %>"/>
+      <input type="hidden" name="website" value="/u/<%= user.name %>"/>
+      <% } else { %>
+      <input type="hidden" name="name"/>
+      <input type="hidden" name="email"/>
+      <input type="hidden" name="website" value="http://"/>
+      <% } %>
+      <div class="form-group">
+        <textarea name="content" class="form-control" rows="5"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default" value="留言">留言</button>
+    </form>
+  </div>
+</div>

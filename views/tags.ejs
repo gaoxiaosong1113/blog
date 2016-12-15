@@ -1,0 +1,15 @@
+<%- include header %>
+<div class="container">
+  <div class="primary-box">
+
+    <div class="gxs-box tags">
+      <% if(posts.length <= 0){ %>
+      暂无数据
+      <% } %>
+      <% posts.forEach(function (tag, index) { %>
+      <a class="btn btn-info" href="/tags/<%= tag %>"><%= tag %></a>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<%- include footer %>

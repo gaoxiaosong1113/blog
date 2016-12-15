@@ -1,0 +1,44 @@
+<%- include header %>
+<div class="container">
+  <div class="primary-box">
+    <form method="post" class="form">
+      <div class="form-group">
+        <label>标题：</label>
+        <input type="text" class="form-control" name="title" placeholder="请输入文章标题"/>
+      </div>
+      <div class="form-group">
+        <label>引文：</label>
+        <input type="text" class="form-control" name="titleInfo" placeholder="请输入文章介绍"/><br/>
+      </div>
+      <div class="form-group">
+        <label>标签：</label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag1" value="html/css"> html/css
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag2" value="javascript"> javascript
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag3" value="js插件"> js插件
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag4" value="手机移动"> 手机移动
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag5" value="性能优化"> 性能优化
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag6" value="类库优化"> 类库优化
+        </label>
+      </div>
+      <div class="form-group">
+        <label>正文：</label>
+        <textarea name="post" class="form-control" rows="20"></textarea>
+      </div>
+      <div class="form-group text-right">
+        <button type="submit" class="btn btn-success">发表</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include footer %>

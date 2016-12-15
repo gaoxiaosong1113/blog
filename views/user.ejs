@@ -1,0 +1,38 @@
+<%- include header %>
+<div class="container">
+  <div class="row">
+    <div class="primary-box">
+      <% if(posts.length <= 0){ %>
+      暂无数据
+      <% } %>
+      <% posts.forEach(function (post, index) { %>
+      <div class="page">
+        <h4 class="page-title"><a href="/post/<%= post.id %>"><%= post.title %></a></h4>
+        <p class="page-bodying">
+          <span><%= post.time.minute %></span>
+          <span>阅读：<%= post.pv %></span>
+          <span>评论：<%= post.comments.length %></span>
+          <span>标签：
+            <% post.tags.forEach(function (tag, index) { %>
+            <% if (tag) { %>
+            <a class="label label-default" href="/tags/<%= tag %>"><%= tag %></a>
+            <% } %>
+            <% }) %>
+          </span>
+          <span><a href="/u/<%= post.name %>"></a></span>
+        </p>
+        <div class="media">
+          <div class="media-left">
+            <a href="/u/<%= post.name %>"><img src="<%= post.head %>" class="media-object img-rounded"/></a>
+          </div>
+          <div class="media-body">
+            <p><%- post.titleInfo %></p>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<%- include paging %>
+<%- include footer %>

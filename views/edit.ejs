@@ -1,0 +1,27 @@
+<%- include header %>
+<div class="container main gxs-box">
+  <div class="gxs-article">
+    <form method="post" class="form">
+      <div class="form-group">
+        <label for="">标题：</label>
+        <input class="form-control" type="text" name="title" value="<%= post.title %>" disabled="disabled"/><br/>
+      </div>
+      <div class="form-group">
+        <label for="">标签：</label>
+        <% post.tags.forEach(function (tag, index) { console.log(tag)%>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="tag" value="<%= tag %>"><%= tag %>
+        </label>
+        <% }) %>
+      </div>
+      <div class="form-group">
+        <label for="">正文：</label>
+        <textarea class="form-control" name="post" rows="20" cols="100"><%= post.post %></textarea><br/>
+      </div>
+      <div class="form-group text-right">
+        <button type="submit" class="btn btn-default">保存修改</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include footer %>
